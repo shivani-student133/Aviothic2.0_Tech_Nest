@@ -1,0 +1,503 @@
+/* GLOBAL STYLES & VARIABLES */
+:root {
+    /* Color Palette */
+    --primary-start: #007bff;   /* Light Blue */
+    --primary-end: #0071b3;     /* Dark Blue */
+    --home-bg: #;         
+    --white: #fff;
+    --text-color: #333;
+    --success-color: darkgreen;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    /* Default body background is white for all pages except Home */
+    background-color: var(--white);
+}
+
+/* Specific Style for the Home Page Body */
+/* The body class 'home-bg' will be added to index.html to control this */
+body.home-bg {
+    background-color: var(--home-bg);
+}
+
+/* --- NAVIGATION --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 5%; /* Use percentage for better padding on larger screens */
+    background: black; /* White background for all navigations except a potential special case */
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+nav .logo {
+    font-size: 1.6em;
+    font-weight: 700;
+    color:white;
+}
+
+/* --- BUTTONS & LINKS (Gradient requirement) --- */
+/* Target all relevant buttons and anchor tags */
+button, .gradient-button, .backHome {
+    /* Linear gradient background as requested */
+    background: linear-gradient(135deg,#007bff,#0056b3);
+    color: var(--white);
+    padding: 10px 20px;
+
+    border: none;
+    border-radius: 8px; /* Slightly squarer for a modern look */
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none; /* For button styled as link */
+    display: inline-block;
+    text-align: center;
+}
+
+button:hover, .gradient-button:hover, .backHome:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Style for non-gradient buttons (e.g., lang toggle, tab buttons) */
+.plain-button {
+    background: var(--white);
+    color: var(--primary-end);
+    border: 2px solid var(--primary-end);
+    box-shadow: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+.plain-button:hover {
+    background: var(--primary-end);
+    color: var(--white);
+    transform: none;
+}
+
+
+/* --- HOME SECTION --- */
+#home-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: calc(100vh - 60px); /* Fill the rest of the screen */
+    padding: 20px 5%;
+}
+.home-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+#home-section h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: black;
+    text-shadow: 3px 3px gray;
+}
+#home-section h2 {
+    font-size: 1.8 em;
+    font-style: italic;
+    font-weight: bold;
+    color: darkolivegreen;
+    margin-top: 0;
+}
+
+
+/* --- MARKETPLACE, TRAINING, MENTORSHIP SECTIONS --- */
+#marketplace, #training, #mentorship {
+    padding: 20px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Top Info Line in Marketplace */
+.top-info {
+    text-align: center;
+    font-size: 1.1em;
+    padding: 15px;
+    background-color:black;
+    color:white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.top-info button {
+    padding: 5px 10px;
+    font-size: 0.9em;
+    border-radius: 5px;
+}
+
+/* Filters */
+.filters, .mentor-filter {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.filters input, .filters select, #mentorFilter {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    min-width: 180px;
+}
+
+/* Product & Mentor Grids */
+.product-grid, .mentor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted width */
+    gap: 25px;
+    margin-top: 20px;
+}
+.product-card, .mentor-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+    border: 1px solid #eee;
+}
+.product-card:hover, .mentor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.product-card h3, .mentor-card h3 {
+    margin: 5px 0 10px;
+    font-size: 1.2em;
+    color: black;
+}
+.product-card p, .mentor-card p {
+    font-size: 0.9em;
+    margin: 5px 0;
+    color: darkblue;
+}
+.product-card button, .mentor-card button {
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* Upload Form */
+#uploadSection h3, #myProductsSection h3 {
+    text-align: center;
+    color:black;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+#uploadForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto 50px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+#uploadForm input {
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+/* --- TRAINING TABS --- */
+.training-tabs {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.training-tabs button {
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+.training-content {
+    margin-bottom: 20px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   text-align: center;
+    background: burlywood;
+    
+}
+.training-content p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+.training-content iframe {
+    width: 560px;
+    max-width: 100%;
+    height: 315px; /* Increased height for better viewing */
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+/* --- MODAL (Login/Register) --- */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Required: Blur background when modal is open */
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+.modal-content h3 {
+    color: var(--primary-end);
+    margin-bottom: 20px;
+}
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.modal-content button {
+    width: 100%;
+    margin-top: 10px;
+}
+.modal-content p {
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+.modal-content span {
+    color: var(--primary-end);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* --- CHATBOT --- */
+#chatbotBox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background: var(--white);
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 999;
+}
+#chatbotToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    line-height: 60px;
+    text-align: center;
+    padding: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+#chatbotMessages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    border-bottom: 1px solid black;
+    font-size: 0.9em;
+}
+#chatbotInputContainer {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.quick-replies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+.quick-replies button {
+    padding: 5px 8px;
+    font-size: 0.8em;
+    border-radius: 5px;
+    box-shadow: none;
+    background: #e9ecef;
+    color: var(--text-color);
+    border: 1px solid #ced4da;
+    width: auto;
+}
+.quick-replies button:hover {
+    background: var(--primary-start);
+    color: var(--white);
+    transform: none;
+    opacity: 1;
+}
+#userInput {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* --- NOTIFICATION --- */
+#notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 25px;
+    /* Required: Dark green color */
+    background: var(--success-color);
+    color: var(--white);
+    border-radius: 10px;
+    display: none;
+    font-weight: 600;
+    z-index: 1001;
+    min-width: 250px;
+    text-align: center;
+    animation: fadeIn 0.3s, fadeOut 0.3s 2.2s forwards; /* Added animation for auto-disappear */
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+/* --- RESPONSIVENESS --- */
+@media(max-width: 992px) {
+    .product-grid, .mentor-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .training-content iframe {
+        height: 350px;
+    }
+}
+
+@media(max-width: 600px) {
+    nav { padding: 10px 5%; }
+    #home-section h1 { font-size: 2em; }
+    #home-section h2 { font-size: 1em; }
+    .home-buttons { flex-direction: column; width: 80%; margin: 30px auto; }
+    .home-buttons a, .home-buttons button { width: 100%; }
+    
+    .filters { flex-direction: column; gap: 10px; }
+    .filters input, .filters select { min-width: 100%; }
+
+    .training-content iframe { height: 250px; }
+    
+    #chatbotBox { width: 90%; height: 350px; right: 5%; left: 5%; }
+    #chatbotToggle { right: 5%; }
+}
+
+/* Ensure Back to Home Button is styled and centered */
+.backHome-container {
+    text-align: center;
+    margin: 40px 0;
+}
+.backHome {
+    padding: 12px 30px;
+    min-width: 200px;
+}
+
+#reviewModal .modal-content {
+    max-width: 500px;
+}
+
+#reviewModal textarea {
+    width: 100%;
+    height: 80px;
+    margin-top: 5px;
+}
+
+.review-item {
+    background: salmon;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 5px 0;
+}
+
+/* 🌿 WhatsApp Contact Button Style */
+.whatsapp-button {
+  background-color: #25D366;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 8px;
+  width: 100%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.whatsapp-button:hover {
+  background-color: #1DA851;
+  transform: translateY(-2px);
+}
+
+.whatsapp-icon {
+  font-size: 18px;
+}
+/* --- Light/Dark Mode --- */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --card-bg: #f5f5f5;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --card-bg: #1e1e1e;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s, color 0.4s;
+}

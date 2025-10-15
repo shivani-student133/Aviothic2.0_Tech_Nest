@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+    <div class="logo">Rural Women</div>
+    <button id="themeToggle" class="plain-button">🌙</button>
+</nav>
+
+<section id="training">
+    <h2 style="text-align:center; color:black; font-style: italic; margin-bottom: 20px;"><u>Training & Resources</u></h2>
+    <div class="training-tabs">
+        <button class="plain-button active" onclick="showTrainingTab('financial')">Financial Literacy</button>
+        <button class="plain-button" onclick="showTrainingTab('schemes')">Government Schemes</button>
+        <button class="plain-button" onclick="showTrainingTab('skill')">Skill Development</button>
+    </div>
+
+    <div id="financial" class="training-content">
+    
+    <!-- Video 1 -->
+    <p>📊 <strong>Financial Literacy Basics:</strong> This video explains how to manage your revenue, track expenses, and plan a budget for small businesses.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/AkMTxMN7res?si=xJs1u80xjYVPdkDT" title="Financial Literacy Video" frameborder="0" allowfullscreen></iframe>
+
+    <!-- Video 2 -->
+    <p>💰 <strong>Small Business Accounting:</strong> Learn basic accounting techniques for your business and understand income, expenses, and profit calculation.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/MLIG1VVB8vE?si=e2Z2g486QisgckS9" title="Small Business Accounting" frameborder="0" allowfullscreen></iframe>
+
+    <!-- Video 3 -->
+    <p>🏦 <strong>Accessing Credit & Loans:</strong> This video teaches how to get microfinance or bank loans, interest rates, and repayment tips.</p>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/tJ77jj1RNXY?si=MkliLcvctG05dGPi" title="Microfinance Explained" frameborder="0" allowfullscreen></iframe>
+</div>
+
+ <div id="schemes" class="training-content" >
+    
+    <p>🏛 <strong>Pradhan Mantri MUDRA Yojana (PMMY):</strong> This scheme provides collateral-free loans to small women entrepreneurs to start or expand their businesses.</p>
+    <iframe src="https://www.youtube.com/embed/_DsaBzaD7Jo?si=WczuRYioqBIUzU83" title="MUDRA Loan Explained" frameborder="0" allowfullscreen></iframe>
+
+    <!-- WEP -->
+    <p>🌐 <strong>Women Entrepreneurship Platform (WEP):</strong> An initiative by NITI Aayog that connects women entrepreneurs with mentorship, funding, and business growth resources.</p>
+    <iframe src="https://www.youtube.com/embed/wCPDBi6MiHs?si=8WXpn03Gd4Nnj8EK" title="Women Entrepreneurship Platform" frameborder="0" allowfullscreen></iframe>
+
+    <!-- Credit Guarantee Scheme -->
+    <p>💳 <strong>Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE):</strong> Offers credit guarantee to banks so women entrepreneurs can access loans without needing collateral.</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/wNipdYntL5E?si=Vw9WAXX4O36rdKLc" title="Credit Guarantee Scheme" frameborder="0" allowfullscreen></iframe>
+
+    <!-- EmpowHerBiz -->
+    <p>🚀 <strong>EmpowHerBiz:</strong> A government-supported initiative under the Ministry of MSME that provides skill training, mentorship, and funding access to empower women-led startups and small businesses.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/wHBkPU6pOiA?si=P3My8a9_ZHduD8c6" title="EmpowHerBiz Initiative" frameborder="0" allowfullscreen></iframe>
+</div>
+
+      <div id="skill" class="training-content" >
+   
+    <p>🛠 <strong>Handicraft & Traditional Skills:</strong> Learn modern packaging and marketing techniques to adapt your traditional crafts for wider markets.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Rp6Sn1coaKk?si=cPxMiETlRie4tDZx" title="Handicraft Business Ideas" frameborder="0" allowfullscreen></iframe>
+
+    <p>💻 <strong>Digital Skills for Women:</strong> Basics of social media marketing, online selling, and e-commerce platforms to promote your products.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/vJ4HfvaRqLU?si=YBtdtZe7sSVmbzUy" title="Digital Marketing for Beginners" frameborder="0" allowfullscreen></iframe>
+
+    <p>📈 <strong>Entrepreneurship Workshops:</strong> Tips on starting and managing a small business, planning growth, and overcoming common challenges.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/eHJnEHyyN1Y?si=0tqv8liIA-o0e_P6" title="Entrepreneurship Training" frameborder="0" allowfullscreen></iframe>
+
+</div>
+
+    <div class="backHome-container">
+        <a href="index.html" class="backHome">Back to Home</a>
+    </div>
+</section>
+
+<button id="chatbotToggle" onclick="toggleChatbot()" class="gradient-button">💬</button>
+<div id="notification"></div>
+<div id="chatbotBox" style="display: none;"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

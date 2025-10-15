@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentorship</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+    <div class="logo">Rural Women</div>
+    <button id="themeToggle" class="plain-button">🌙</button>
+</nav>
+
+<section id="mentorship">
+    <h2 style="text-align:center; color:black; font-style: italic; margin-bottom: 20px;"><u>Book a Mentorship Session</u></h2>
+    <div class="mentor-filter">
+        <select id="mentorFilter" onchange="filterMentors()">
+            <option value="All">All Mentors</option>
+            <option value="Financial">Financial</option>
+            <option value="Skill">Skill</option>
+            <option value="Schemes">Schemes</option>
+        </select>
+    </div>
+    <div class="mentor-grid" id="mentorGrid"></div>
+
+    <div class="backHome-container">
+        <a href="index.html" class="backHome">Back to Home</a>
+    </div>
+</section>
+
+<button id="chatbotToggle" onclick="toggleChatbot()" class="gradient-button">💬</button>
+<div id="notification"></div>
+<div id="chatbotBox" style="display: none;"></div>
+
+<!-- Booking Modal -->
+<div id="bookingModal" class="modal" style="display:none;">
+  <div class="modal-content" style="background:#fff;  padding:20px; border-radius:12px; max-width:350px; margin:auto; text-align:center;">
+    <span onclick="closeBookingModal()" style="float:right; cursor:pointer; font-weight:bold;">&times;</span>
+    <h3>Book Session with <span id="mentorName"></span></h3>
+    <form onsubmit="confirmBooking(event)">
+      <input type="text" id="userName" placeholder="Your Name" required style="margin:8px; width:90%; padding:5px;"><br>
+      <input type="email" id="userEmail" placeholder="Your Email" required style="margin:8px; width:90%; padding:5px;"><br>
+      <input type="date" id="sessionDate" required style="margin:8px; width:90%; padding:5px;"><br>
+      <button type="submit" class="gradient-button">Confirm</button>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

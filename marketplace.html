@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+    <div class="logo">Rural Women</div>
+    <button id="themeToggle" class="plain-button">🌙</button>
+</nav>
+
+<section id="marketplace">
+    <p class="top-info">Explore your products. <button class="gradient-button" onclick="showAuthModal()">Register/Login</button> to upload products.</p>
+
+    <div id="authModal" class="modal">
+        <div class="modal-content auth-form">
+            <span class="close" onclick="closeAuthModal()">&times;</span>
+            <div id="loginForm">
+                <h3>Login</h3>
+                <input type="text" id="loginName" placeholder="Name" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button onclick="loginUser()">Login</button>
+                <p>Don't have an account? <span onclick="toggleAuth('register')">Register here</span></p>
+            </div>
+            <div id="registerForm" style="display:none;">
+                <h3>Register</h3>
+                <input type="text" id="regName" placeholder="Name" required>
+                <input type="email" id="regEmail" placeholder="Email" required>
+                <input type="password" id="regPassword" placeholder="Password" required>
+                <input type="tel" id="regPhone" placeholder="Phone" required>
+                <button onclick="registerUser()">Register</button>
+                <p>Already have account? <span onclick="toggleAuth('login')">Login here</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="filters">
+        <select id="categoryFilter" onchange="filterProducts()">
+            <option value="All">All Categories</option>
+            <option value="Handicraft">Handicraft</option>
+            <option value="Food">Food</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Other">Other</option>
+        </select>
+        <input type="text" id="searchInput" placeholder="Search product..." onkeyup="filterProducts()">
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+
+    <div id="uploadSection" style="display:none;">
+        <h3>Upload Product</h3>
+        <form id="uploadForm" onsubmit="addProduct(event)">
+            <input type="file" id="productImage" accept="image/*" required>
+            <input type="text" id="productName" placeholder="Product Name" required>
+            <select id="productType" required>
+                <option value="">Select Category</option>
+                <option value="Handicraft">Handicraft</option>
+                <option value="Food">Food</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Other">Other</option>
+            </select>
+            <input type="number" id="productPrice" placeholder="Price (₹)" required>
+            <input type="tel" id="productWhatsApp" placeholder="WhatsApp Number" required>
+            <button type="submit">Upload Product</button>
+        </form>
+    </div>
+
+    <div id="myProductsSection" style="display:none;">
+        <h3>My Products (Your Uploads)</h3>
+        <div class="product-grid" id="myProductsGrid"></div>
+    </div>
+<!-- Review Modal -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeReviewModal()">&times;</span>
+            <h3 id="reviewProductName">Product Reviews</h3>
+            
+            <form id="reviewForm" onsubmit="addReview(event)">
+                <label>Rate this product:</label>
+                <select id="reviewRating" required>
+                    <option value="">Select Rating</option>
+                    <option value="5">★★★★★ (5)</option>
+                    <option value="4">★★★★☆ (4)</option>
+                    <option value="3">★★★☆☆ (3)</option>
+                    <option value="2">★★☆☆☆ (2)</option>
+                    <option value="1">★☆☆☆☆ (1)</option>
+                </select>
+                <textarea id="reviewText" placeholder="Write your review..." required></textarea>
+                <button type="submit">Submit Review</button>
+            </form>
+             <br>
+            <h4>All Reviews 👇🏻</h4>
+            <div id="reviewsList"></div>
+        </div>
+    </div>
+
+
+    <div class="backHome-container">
+        <a href="index.html" class="backHome">Back to Home</a>
+    </div>
+</section>
+
+<button id="chatbotToggle" onclick="toggleChatbot()" class="gradient-button">💬</button>
+<div id="notification"></div>
+<div id="chatbotBox" style="display: none;"></div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
