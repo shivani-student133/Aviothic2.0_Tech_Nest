@@ -32,7 +32,7 @@ In Training, we provide videos on business skills, financial literacy, and gover
 
 ---
 
-Team Leader: Shivani Yadav
-Team Members: Shanu Yadav
-              Vedant Gupta
-              Monu Maurya
+Team Leader: Shivani Yadav<br>
+Team Members: Shanu Yadav<br>
+              Vedant Gupta<br>
+              Monu Maurya<br>
